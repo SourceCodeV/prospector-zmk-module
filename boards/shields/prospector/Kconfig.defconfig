@@ -4,7 +4,7 @@ config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
     default y
 
 config ZMK_DISPLAY
-   default y
+    default y
 
 choice ZMK_DISPLAY_STATUS_SCREEN
     default ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
@@ -25,7 +25,7 @@ config ZMK_DISPLAY_DEDICATED_THREAD_STACK_SIZE
     default 4096
 
 choice ST7789V_PIXEL_FORMAT
-	default ST7789V_RGB565
+    default ST7789V_RGB565
 endchoice
 
 config LV_Z_VDB_SIZE
@@ -38,14 +38,14 @@ config LV_DPI_DEF
     default 261
 
 config LV_Z_BITS_PER_PIXEL
-	default 16
+    default 16
 
 choice LV_COLOR_DEPTH
-	default LV_COLOR_DEPTH_16
+    default LV_COLOR_DEPTH_16
 endchoice
 
 config LV_COLOR_16_SWAP
-	default y
+    default y
 
 config LV_DISP_DEF_REFR_PERIOD
     default 20
@@ -60,8 +60,23 @@ config PWM
 config LED
     default y
 
+# --- Prospector options ---
 config PROSPECTOR_USE_AMBIENT_LIGHT_SENSOR
+    bool "Use ambient light sensor for auto brightness"
+    default y
     select SENSOR
     select APDS9960
+
+config PROSPECTOR_FIXED_BRIGHTNESS
+    int "Set fixed display brightness (1–100)"
+    default 50
+
+config PROSPECTOR_ROTATE_DISPLAY_180
+    bool "Rotate the display 180 degrees"
+    default n
+
+config PROSPECTOR_LAYER_ROLLER_ALL_CAPS
+    bool "Convert layer names to all caps"
+    default n
 
 endif
