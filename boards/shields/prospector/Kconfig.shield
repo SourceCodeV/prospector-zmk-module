@@ -1,2 +1,14 @@
+config SHIELD_PROSPECTOR
+    bool
+
 config SHIELD_PROSPECTOR_DONGLE
-    def_bool $(shields_list_contains,prospector_dongle)
+    def_bool $(shields_list_contains,PROSPECTOR_dongle)
+    select ZMK_SPLIT_ROLE_CENTRAL
+    select ZMK_SPLIT
+    select SHIELD_PROSPECTOR
+
+config SHIELD_PROSPECTOR_CENTRAL
+    def_bool $(shields_list_contains,PROSPECTOR_central)
+    select ZMK_SPLIT_ROLE_CENTRAL
+    select ZMK_SPLIT
+    select SHIELD_PROSPECTOR
